@@ -115,6 +115,11 @@
 <p>JMP instruction එකෙහි bit fields නිරීක්ෂණය කරන විට 7-0 bits වලින් නිරූපණය වනුයේ program counter එක යොමු විය යුතු address එක බව පෙනෙනු ඇත. එම නිසා ඉහත පරිපථයේ multiplexer එකෙහි ImmToPC අග්‍රය HIGH වන විට instruction එකෙහි 7-0 bits වලින් ලබා දෙන අගය PC වෙත යොමු වන ආකාරයට පරිපථය සම්බන්ධ කර ඇත.</p>
 <p>ImmToPC අග්‍රයේ value එක තීරණය කරනුයේ Control Unit එක මගිනි. අප විසින් control unit එක තවම නිර්මාණය කර නොමැති අතර data path එක සම්පූර්ණ කර අවසන් වූ පසු එය නිර්මාණය කරමු.</p>
 <p>Instruction memory එකෙන් instruction එකක් නිකුත් වූ පසු control unit එක එම instruction එක read කර එය JMP instruction එක නම් ImmToPC අග්‍රය HIGH කරනු ලබයි. එවිට JMP instruction එකෙහි ලබා දී ඇති address value(7-0 bits) එක multiplexer එක විසින් PC වෙත යොමු කරයි. ඊළඟ  clock pulse එකේ දී PC එක තුලට  එම address එක ඇතුලත් වනු ඇත.</p>
+<p>LOADI instruction එක සඳහා datapath එක පහත දැක්වේ.</p>
+<img src="img/figure21.png">
+<p>LOADI instruction එකෙහි bit fields නිරීක්ෂණය කරන විට 11-10 bits වලින් නිරූපණය වනුයේ value එක write විය යුතු register index එක වන අතර 7-0 bits වලින් නිරූපණය වනුයේ value එක බව පෙනෙනු ඇත. එම නිසා ඉහත පරිපථයේ RegWrite අග්‍රය HIGH වන විට instruction එකෙහි 7-0 bits වලින් ලබා දෙන අගය 11-10 bits වලින් තොරා ඇති register එක වෙත write වන ආකාරයට පරිපථය සම්බන්ධ කර ඇත.</p>
+<p>Instruction memory එකෙන් instruction එකක් නිකුත් වූ පසු control unit එක එම instruction එක read කර එය LOADI instruction එක නම් RegWrite අග්‍රය HIGH කරනු ලබයි.</p>
+<p>මේ වන විට register file එකෙහි WREG අග්‍ර වෙත register index එක සහ WDATA අග්‍ර වෙත write විය යුතු value එක යොමු වී ඇති අතර ඊළඟ clock pulse එකේ දී register file එක විසින් අදාල register එකට දෙන ලද value එක ඇතුලත් කරනු ඇත.</p>
 <h3>Assembler මෘදුකාංගයක් නිර්මාණය කරමු</h3>
 	<p></p>	
 
